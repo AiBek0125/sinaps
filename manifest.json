@@ -1,0 +1,21 @@
+{
+  "name": "Синапс — ассистент учителя",
+  "short_name": "Синапс",
+  "description": "Дружелюбный школьный ассистент с живыми схемами по биологии, физике, химии и истории для учеников 12–17 лет.",
+  "lang": "ru",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#161328",
+  "theme_color": "#19162d",
+  "categories": ["education"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512 any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
