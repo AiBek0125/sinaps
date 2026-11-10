@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --syn-bg-deep: #151226;
+  --syn-panel: rgba(34, 28, 59, 0.72);
+  --syn-border: rgba(183, 173, 255, 0.18);
+  --syn-mint: #7ef9e0;
+  --syn-gold: #ffd27f;
+  --syn-blush: #ffb3c1;
+}
+
+body {
+  background: radial-gradient(circle at 18% 15%, #2b234d 0%, #19152e 48%, #120f21 100%);
+  min-height: 100vh;
+  font-family: "Nunito", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Мягкие полупрозрачные панели со скруглением 16px */
+.syn-glass {
+  background: var(--syn-panel);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--syn-border);
+  border-radius: 16px;
+  box-shadow: 0 18px 42px rgba(7, 5, 18, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Плавные анимации для диаграмм, формул и карточек */
+@keyframes synFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes synSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes synDashMove {
+  from {
+    stroke-dashoffset: 36;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes synVecDraw {
+  from {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    opacity: 0.2;
+  }
+  to {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.syn-card-anim {
+  animation: synFadeIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.syn-fade-in {
+  opacity: 0;
+  animation: synFadeIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.syn-slide-up {
+  opacity: 0;
+  animation: synSlideUp 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.syn-dash-flow {
+  stroke-dasharray: 8 6;
+  animation: synDashMove 2s linear infinite;
+}
+
+.fb-vec {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: synVecDraw 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Кнопки-пилюли внутри интерактивных шаблонов */
+.syn-pill-btn {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(183, 173, 255, 0.28);
+  background: rgba(24, 20, 44, 0.6);
+  color: #dcd4f5;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.syn-pill-btn:hover {
+  border-color: rgba(126, 249, 224, 0.6);
+  color: #ffffff;
+}
+
+.syn-pill-btn.active {
+  background: rgba(126, 249, 224, 0.2);
+  border-color: #7ef9e0;
+  color: #7ef9e0;
+}
+
+/* Офлайн-фолбэк для дробей в формулах */
+.syn-frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 4px;
+  font-size: 0.86em;
+}
+.syn-frac-bar {
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  margin: 2px 0;
+}
+
+/* Мягкий скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(20, 17, 38, 0.4);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(169, 155, 255, 0.3);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(126, 249, 224, 0.45);
+}
